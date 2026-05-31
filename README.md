@@ -83,47 +83,15 @@ HotLead is an AI voice agent that:
 ### NVIDIA Nemotron (Open Weights Models)
 - **STT**: Nemotron Speech Streaming (0.6B) - real-time transcription
 - **LLM**: Nemotron 3 Super 120B - conversation and tool calling
-
-**What worked well:**
-- Followed complex multi-step prompts accurately
-- Natural conversational tone appropriate for phone calls
-- Reliable tool/function calling for capturing structured lead data
-- Good at understanding context and maintaining conversation flow
-
-**What could improve:**
-- Initial latency on first response (expected with 120B model)
-- Would benefit from voice-specific fine-tuning for sales scenarios
-- More examples of phone/voice use cases in documentation
+- Used for speech recognition and natural language generation in phone calls
 
 ### Cekura (Testing & Evaluation)
-
-**What we tested:**
-- Identity verification flow ("Is this the right person?")
-- Interest confirmation handling (interested vs not interested vs uncertain)
-- Requirement collection accuracy
-- Edge cases: wrong number, opt-out requests, uncertain responses
-
-**Testing approach:**
-- Created test scenarios simulating different lead types
+- Connected Pipecat agent via MCP integration with Claude Code
+- Created test scenarios simulating different lead types (interested, not interested, uncertain, wrong number)
 - Evaluated transcript quality and conversation flow
-- Measured tool calling accuracy (did AI capture correct intent?)
-
-**Performance improvement:**
-- Initial accuracy: ~60% correct intent classification
-- After prompt tuning: ~85% accuracy
-- Key improvements:
-  - Added explicit guardrails for uncertain responses
-  - Fixed prompt to avoid pushy sales language
-  - Improved tool calling reliability for structured output
-
-**Self-improvement loop:**
-- Used Cekura to identify failing scenarios
-- Updated system prompt based on failures
-- Re-tested to verify improvements
-- Iterated 3-4 times during hackathon
-
-**Bugs found:**
-- Minor: Some test runs showed duplicate transcript entries (may be our implementation issue)
+- Measured tool calling accuracy (intent classification)
+- Iterated 3-4 times: test → identify failures → update prompt → re-test
+- Performance improved from ~60% to ~85% accuracy
 
 ---
 
